@@ -76,7 +76,7 @@ Clash 采用继承的分流配置方式，例如，巴哈姆特设置为使用�
 
 + 使用公用 ZJU Rule 转换服务会泄露我的订阅链接吗？
 
-  公用转换服务不会对转换成功的订阅链接进行储存。转换错误的链接可能会以错误日志形式保存以供分析。也可以自行搭建 [subconverter](https://github.com/tindy2013/subconverter) 并使用 ZJU Rule 规则进行转换
+  公用转换服务不会对转换成功的订阅链接进行储存。转换错误的链接可能会以错误日志形式保存以供分析。后端 subconverter 的源码[见此](https://github.com/ZJU-Rule/subconverter)。也可以自行搭建 [subconverter](https://github.com/tindy2013/subconverter) 并使用 ZJU Rule 规则进行转换
 
 + 我可以为 Clash 外的其他客户端生成订阅链接吗？
   
