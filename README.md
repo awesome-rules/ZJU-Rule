@@ -8,7 +8,7 @@
 
 ## 支持功能
 
-+ ZJU 内网资源/学术资源分流（直连访问/内网穿透访问）
++ ZJU 内网资源/学术资源分流（直连访问/ [ZJU Connect](https://github.com/Mythologyli/zju-connect) RVPN访问）
 + 节点自动选择
 + 节点故障转移
 + 节点负载均衡
@@ -52,6 +52,14 @@
   + 在 Clash 客户端中添加上一步得到的链接。以 Windows 版为例，点击 Profiles，将链接粘贴到上方的框中，点击 Download 按钮
   + 推荐设置为每小时更新一次，以同步机场配置文件和 ZJU Rule 的更改。以 Windows 版为例，在配置上右键 - Settings，设置 Update Interval (hour) 为 1
 
++ 注意：如果添加订阅时出现 `unsupport proxy type: vless`，或是能添加成功但 Vless 节点均无法连接，说明订阅中含有原版 Clash 不支持的 VLESS 协议。请使用以下客户端：
+
+  + Windows: [Clash Verge](https://github.com/zzzgydi/clash-verge/releases)（内核切换为 Meta）
+  + Mac: [Clash Verge](https://github.com/zzzgydi/clash-verge/releases)（内核切换为 Meta）
+  + Android/HarmonyOS: [Clash Meta for Android](https://github.com/MetaCubeX/ClashMetaForAndroid)
+
+  参考：[https://www.cc98.org/topic/5677200](https://www.cc98.org/topic/5677200)
+
 ### 配置分流方式
 
 ![](docs/clash.png)
@@ -60,13 +68,15 @@ Clash 采用继承的分流配置方式，例如，巴哈姆特设置为使用�
 
 ## 常见问题
 
++ 请先阅读：[https://www.cc98.org/topic/5677200](https://www.cc98.org/topic/5677200)
+
 + 我不喜欢生成的规则/分组太复杂，可以更改吗？
 
   公用转换服务使用 [ZJU.ini](https://github.com/ZJU-Rule/ZJU-Rule/blob/master/Clash/config/ZJU.ini) 作为规则分组文件。该文件修改自 [ACL4SSR_Online_Full_AdblockPlus.ini](https://github.com/ZJU-Rule/ZJU-Rule/blob/master/Clash/config/ACL4SSR_Online_Full_AdblockPlus.ini)，添加了 [ZJU.list](https://github.com/ZJU-Rule/ZJU-Rule/blob/master/Clash/ZJU.list)。如要修改规则分组，请 Fork 本项目，自行搭建 [subconverter](https://github.com/tindy2013/subconverter) 并编辑 [ZJU.ini](https://github.com/ZJU-Rule/ZJU-Rule/blob/master/Clash/config/ZJU.ini) 进行转换
 
 + 使用公用 ZJU Rule 转换服务会泄露我的订阅链接吗？
 
-  公用转换服务不会对用户的订阅链接进行储存。也可以自行搭建 [subconverter](https://github.com/tindy2013/subconverter) 并使用 ZJU Rule 规则进行转换
+  公用转换服务不会对转换成功的订阅链接进行储存。转换错误的链接可能会以错误日志形式保存以供分析。也可以自行搭建 [subconverter](https://github.com/tindy2013/subconverter) 并使用 ZJU Rule 规则进行转换
 
 + 我可以为 Clash 外的其他客户端生成订阅链接吗？
   
